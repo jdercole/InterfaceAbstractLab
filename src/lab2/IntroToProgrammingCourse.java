@@ -1,6 +1,5 @@
 package lab2;
 
-import javax.swing.JOptionPane;
 
 /**
  * Describe responsibilities here.
@@ -19,32 +18,32 @@ public class IntroToProgrammingCourse implements ProgrammingCourse {
         setCourseId(courseId);
     }
 
-    public int getCourseId() {
-        return courseId;
-    }
-
-    public final void setCourseId(int courseId) {
-        if(courseId <= 0) {
-            JOptionPane.showMessageDialog(null,
-                    "Error: courseNumber cannot be null of empty string");
-            System.exit(0);
-        }
-        this.courseId = courseId;
-    }
-
     @Override
-    public double getCredits() {
+     public double getCredits() {
         return credits;
     }
 
     @Override
-    public void setCredits(double credits) {
+    public final void setCredits(double credits) throws IllegalArgumentException {
         if(credits < 0.5 || credits > 4.0) {
-            JOptionPane.showMessageDialog(null,
-                    "Error: credits must be in the range 0.5 to 4.0");
-            System.exit(0);
+            throw new IllegalArgumentException("Error: credits must be in the range 0.5 to 4.0");
+        } else {
+            this.credits = credits;
         }
-        this.credits = credits;
+    }
+
+    @Override
+    public int getCourseId() {
+        return courseId;
+    }
+
+    @Override
+     public final void setCourseId(int courseId) throws IllegalArgumentException {
+        if(courseId <= 0) {
+            throw new IllegalArgumentException("Error: course number must be set!");
+        } else {
+            this.courseId = courseId;
+        } 
     }
 
     @Override
@@ -53,13 +52,12 @@ public class IntroToProgrammingCourse implements ProgrammingCourse {
     }
 
     @Override
-    public final void setCourseName(String courseName) {
-        if(courseName == null || courseName.length() == 0) {
-            JOptionPane.showMessageDialog(null,
-                    "Error: courseName cannot be null of empty string");
-            System.exit(0);
+    public final void setCourseName(String courseName) throws IllegalArgumentException {
+        if (courseName == null || courseName.length() == 0) {
+            throw new IllegalArgumentException("Course name cannot be null or empty string!");
+        } else {
+            this.courseName = courseName;
         }
-        this.courseName = courseName;
     }
 
     @Override
@@ -68,7 +66,7 @@ public class IntroToProgrammingCourse implements ProgrammingCourse {
     }
 
     @Override
-    public final void setInstructor(String instructor) throws IllegalArgumentException {
+    public final void setInstructor(String instructor) throws IllegalArgumentException{
         if (instructor == null || instructor.length() == 0) {
             throw new IllegalArgumentException("Instructor cannot be null or empty string!");
         } else {

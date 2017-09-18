@@ -8,7 +8,7 @@ import java.util.ArrayList;
  * @author      Jenna
  * @version     1.00
  */
-public class IntroJavaCourse {
+public class IntroJavaCourse implements ProgrammingCourse {
     private String courseName;
     private int courseId;
     private double credits;
@@ -20,10 +20,12 @@ public class IntroJavaCourse {
         setCourseId(courseId);
     }
     
+    @Override
     public String getCourseName() {
         return courseName;
     }
 
+    @Override
     public final void setCourseName(String courseName) throws IllegalArgumentException {
         if (courseName == null || courseName.length() == 0) {
             throw new IllegalArgumentException("Course name cannot be null or empty string!");
@@ -32,10 +34,12 @@ public class IntroJavaCourse {
         }
     }
 
+    @Override
     public int getCourseId() {
         return courseId;
     }
 
+    @Override
     public final void setCourseId(int courseId) throws IllegalArgumentException {
         if(courseId <= 0) {
             throw new IllegalArgumentException("Error: course number must be set!");
@@ -44,10 +48,12 @@ public class IntroJavaCourse {
         } 
     }
 
+    @Override
     public double getCredits() {
         return credits;
     }
 
+    @Override
     public final void setCredits(double credits) throws IllegalArgumentException {
         if(credits < 0.5 || credits > 4.0) {
             throw new IllegalArgumentException("Error: credits must be in the range 0.5 to 4.0");
@@ -56,10 +62,12 @@ public class IntroJavaCourse {
         }
     }
     
+    @Override
     public String getInstructor() {
         return instructor;
     }
 
+    @Override
     public final void setInstructor(String instructor) {
         if (instructor == null || instructor.length() == 0) {
             throw new IllegalArgumentException("Instructor cannot be null or empty string!");
