@@ -8,27 +8,24 @@ import java.util.ArrayList;
  * @author      Jenna
  * @version     1.00
  */
-public class IntroJavaCourse extends Course {
-    private ArrayList prerequisites;
+public class IntroJavaCourse extends ProgrammingCourse {
+    private ArrayList prerequisitesByCourseId;
 
-    public IntroJavaCourse(String courseName, int courseId) {
+    public IntroJavaCourse(String courseName, int courseId, double credits) {
         setCourseName(courseName);
         setCourseId(courseId);
+        setCredits(credits);
     }
 
     public ArrayList getPrerequisites() {
-        return prerequisites;
+        return prerequisitesByCourseId;
     }
 
-    public void setPrerequisites(String prerequisites) {
-        this.prerequisites = prerequisites;
-    }
-
-    public void setCredits(double credits) throws IllegalArgumentException {
-        if(credits < 0 || credits > 5.0) {
-            throw new IllegalArgumentException("Error: credits must be in the range 0.5 to 4.0");
+    public void setPrerequisite(int courseId) throws IllegalArgumentException {
+        if(courseId < 0) {
+            throw new IllegalArgumentException("Error: prerequisites cannot be negative.");
         } else {
-            setCredits(credits);
+            prerequisitesByCourseId.add(courseId);
         }
     }
 

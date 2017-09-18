@@ -31,7 +31,7 @@ Instructions for Lab #1:
    (Remember, a startup class must have a main method)
 6. When declaring variables in your startup class consider using the 
    Liskov Substitution principle. This is where you declare a variable using
-   it's abstract type. For example, you could do this:
+   its abstract type. For example, you could do this:
 
    MyAbstractSuperClass course = new AdvancedJavaCourse();
 

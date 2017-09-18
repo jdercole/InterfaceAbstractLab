@@ -1,7 +1,6 @@
 package lab1;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 /**
@@ -10,15 +9,13 @@ import java.util.List;
  * @author      Jenna Dercole
  * @version     1.00
  */
-public class AdvancedJavaCourse extends Course{
-    private String courseName;
-    private int courseId;
-    private double credits;
+public class AdvancedJavaCourse extends ProgrammingCourse {
     private ArrayList prerequisitesByCourseId;
 
-    public AdvancedJavaCourse(String courseName, String courseNumber) {
+    public AdvancedJavaCourse(String courseName, int courseId, double credits) {
         setCourseName(courseName);
         setCourseId(courseId);
+        setCredits(credits);
     }
 
     public ArrayList getPrerequisites() {

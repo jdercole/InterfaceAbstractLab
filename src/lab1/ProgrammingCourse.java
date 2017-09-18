@@ -5,7 +5,7 @@ package lab1;
  *
  * @author Jenna
  */
-public abstract class Course {
+public abstract class ProgrammingCourse {
     private double credits;
     private int courseId;
     private String courseName;
@@ -15,7 +15,7 @@ public abstract class Course {
         return credits;
     }
 
-    public void setCredits(double credits) throws IllegalArgumentException {
+    public final void setCredits(double credits) throws IllegalArgumentException {
         if(credits < 0.5 || credits > 4.0) {
             throw new IllegalArgumentException("Error: credits must be in the range 0.5 to 4.0");
         } else {
@@ -27,7 +27,7 @@ public abstract class Course {
         return courseId;
     }
 
-     public void setCourseId(int courseId) throws IllegalArgumentException {
+     public final void setCourseId(int courseId) throws IllegalArgumentException {
         if(courseId <= 0) {
             throw new IllegalArgumentException("Error: course number must be set!");
         } else {
@@ -39,7 +39,7 @@ public abstract class Course {
         return courseName;
     }
 
-    public void setCourseName(String courseName) throws IllegalArgumentException {
+    public final void setCourseName(String courseName) throws IllegalArgumentException {
         if (courseName == null || courseName.length() == 0) {
             throw new IllegalArgumentException("Course name cannot be null or empty string!");
         } else {
@@ -51,8 +51,12 @@ public abstract class Course {
         return instructor;
     }
 
-    public void setInstructor(String instructor) {
-        this.instructor = instructor;
+    public final void setInstructor(String instructor) {
+        if (instructor == null || instructor.length() == 0) {
+            throw new IllegalArgumentException("Instructor cannot be null or empty string!");
+        } else {
+            this.instructor = instructor;
+        }
     }
     
     

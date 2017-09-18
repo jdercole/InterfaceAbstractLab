@@ -1,44 +1,83 @@
 package lab2;
 
+import java.util.ArrayList;
+
 /**
  * Describe responsibilities here.
  *
- * @author      your name goes here
+ * @author      Jenna
  * @version     1.00
  */
 public class IntroJavaCourse {
-    String courseName;
-    private String courseNumber;
+    private String courseName;
+    private int courseId;
     private double credits;
-    private String prerequisites;
+    private String instructor;
+    private ArrayList prerequisitesByCourseId;
 
-    public IntroJavaCourse(String courseName, String courseNumber) {
-        this.courseName = courseName;
-        this.courseNumber = courseNumber;
+    public IntroJavaCourse(String courseName, int courseId) {
+        setCourseName(courseName);
+        setCourseId(courseId);
+    }
+    
+    public String getCourseName() {
+        return courseName;
     }
 
-    public String getCourseNumber() {
-        return courseNumber;
+    public final void setCourseName(String courseName) throws IllegalArgumentException {
+        if (courseName == null || courseName.length() == 0) {
+            throw new IllegalArgumentException("Course name cannot be null or empty string!");
+        } else {
+            this.courseName = courseName;
+        }
     }
 
-    public void setCourseNumber(String courseNumber) {
-        this.courseNumber = courseNumber;
+    public int getCourseId() {
+        return courseId;
+    }
+
+    public final void setCourseId(int courseId) throws IllegalArgumentException {
+        if(courseId <= 0) {
+            throw new IllegalArgumentException("Error: course number must be set!");
+        } else {
+            this.courseId = courseId;
+        } 
     }
 
     public double getCredits() {
         return credits;
     }
 
-    public void setCredits(double credits) {
-        this.credits = credits;
+    public final void setCredits(double credits) throws IllegalArgumentException {
+        if(credits < 0.5 || credits > 4.0) {
+            throw new IllegalArgumentException("Error: credits must be in the range 0.5 to 4.0");
+        } else {
+            this.credits = credits;
+        }
+    }
+    
+    public String getInstructor() {
+        return instructor;
     }
 
-    public String getPrerequisites() {
-        return prerequisites;
+    public final void setInstructor(String instructor) {
+        if (instructor == null || instructor.length() == 0) {
+            throw new IllegalArgumentException("Instructor cannot be null or empty string!");
+        } else {
+            this.instructor = instructor;
+        }
     }
 
-    public void setPrerequisites(String prerequisites) {
-        this.prerequisites = prerequisites;
+     public ArrayList getPrerequisites() {
+        return prerequisitesByCourseId;
+    }
+
+    public final void setPrerequisite(int courseId) throws IllegalArgumentException {
+        if(courseId < 0) {
+            throw new IllegalArgumentException("Error: prerequisites cannot be negative.");
+        } else {
+            prerequisitesByCourseId.add(courseId);
+        }
     }
 
     
