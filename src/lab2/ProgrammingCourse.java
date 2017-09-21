@@ -1,24 +1,30 @@
 
 package lab2;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Jenna
  */
 public interface ProgrammingCourse {
-    public double getCredits();
+    public abstract double getCredits();
 
-    public void setCredits(double credits);
+    public abstract void setCredits(double credits);
     
-    public int getCourseId();
+    public abstract int getCourseId();
 
-     public void setCourseId(int courseId);
+    public abstract void setCourseId(int courseId);
 
-    public String getCourseName();
+    public abstract String getCourseName();
 
-    public void setCourseName(String courseName);
+    public abstract void setCourseName(String courseName);
 
-    public String getInstructor();
+    public abstract String getInstructor();
 
-    public void setInstructor(String instructor);
+    public abstract void setInstructor(String instructor);
+    
+    public abstract ArrayList getPrerequisite();
+    
+    public abstract void setPrerequisite(int courseId);
 }

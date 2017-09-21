@@ -1,5 +1,7 @@
 package lab2;
 
+import java.util.ArrayList;
+
 
 /**
  * Describe responsibilities here.
@@ -12,6 +14,7 @@ public class IntroToProgrammingCourse implements ProgrammingCourse {
     private int courseId;
     private double credits;
     private String instructor;
+    private ArrayList prerequisitesByCourseId;
 
     public IntroToProgrammingCourse(String courseName, int courseId) {
         setCourseName(courseName);
@@ -74,5 +77,18 @@ public class IntroToProgrammingCourse implements ProgrammingCourse {
         }
     }
 
+    @Override
+    public ArrayList getPrerequisite() {
+        return prerequisitesByCourseId;
+    }
+
+    @Override
+    public final void setPrerequisite(int courseId) throws IllegalArgumentException {
+        if(courseId < 0) {
+            throw new IllegalArgumentException("Error: prerequisites cannot be negative.");
+        } else {
+            prerequisitesByCourseId.add(courseId);
+        }
+    }
     
 }

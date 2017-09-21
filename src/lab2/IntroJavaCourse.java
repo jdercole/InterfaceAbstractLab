@@ -21,7 +21,7 @@ public class IntroJavaCourse implements ProgrammingCourse {
     }
     
     @Override
-    public String getCourseName() {
+    public final String getCourseName() {
         return courseName;
     }
 
@@ -35,7 +35,7 @@ public class IntroJavaCourse implements ProgrammingCourse {
     }
 
     @Override
-    public int getCourseId() {
+    public final int getCourseId() {
         return courseId;
     }
 
@@ -49,7 +49,7 @@ public class IntroJavaCourse implements ProgrammingCourse {
     }
 
     @Override
-    public double getCredits() {
+    public final double getCredits() {
         return credits;
     }
 
@@ -63,7 +63,7 @@ public class IntroJavaCourse implements ProgrammingCourse {
     }
     
     @Override
-    public String getInstructor() {
+    public final String getInstructor() {
         return instructor;
     }
 
@@ -76,10 +76,12 @@ public class IntroJavaCourse implements ProgrammingCourse {
         }
     }
 
-     public ArrayList getPrerequisites() {
+    @Override
+     public final ArrayList getPrerequisite() {
         return prerequisitesByCourseId;
     }
 
+    @Override
     public final void setPrerequisite(int courseId) throws IllegalArgumentException {
         if(courseId < 0) {
             throw new IllegalArgumentException("Error: prerequisites cannot be negative.");
