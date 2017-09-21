@@ -1,6 +1,8 @@
 
 package lab1;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Jenna
@@ -10,8 +12,9 @@ public abstract class ProgrammingCourse {
     private int courseId;
     private String courseName;
     private String instructor;
+    private ArrayList prerequisitesByCourseId;
 
-    public double getCredits() {
+    public final double getCredits() {
         return credits;
     }
 
@@ -23,7 +26,7 @@ public abstract class ProgrammingCourse {
         }
     }
 
-    public int getCourseId() {
+    public final int getCourseId() {
         return courseId;
     }
 
@@ -35,7 +38,7 @@ public abstract class ProgrammingCourse {
         } 
     }
 
-    public String getCourseName() {
+    public final String getCourseName() {
         return courseName;
     }
 
@@ -47,7 +50,7 @@ public abstract class ProgrammingCourse {
         }
     }
 
-    public String getInstructor() {
+    public final String getInstructor() {
         return instructor;
     }
 
@@ -59,6 +62,17 @@ public abstract class ProgrammingCourse {
         }
     }
     
+    public final ArrayList getPrerequisites() {
+        return prerequisitesByCourseId;
+    }
+
+    public final void setPrerequisite(int courseId) throws IllegalArgumentException {
+        if(courseId < 0) {
+            throw new IllegalArgumentException("Error: prerequisites cannot be negative.");
+        } else {
+            prerequisitesByCourseId.add(courseId);
+        }
+    }
     
     
 }
